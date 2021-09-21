@@ -43,3 +43,47 @@ var finalPrices = function(prices) {
     
     return resultPrices;
 };
+
+
+// 1047. Remove All Adjacent Duplicates In String
+var removeDuplicates = function(s) {
+    let stack = [];
+    
+    for(let i = 0; i < s.length; i++){
+        if(stack[stack.length - 1] == s[i]){
+            stack.pop();
+        }else{
+            stack.push(s[i]);
+        };
+    };
+    
+    return stack.join("");
+};
+
+// 1441. Build an Array With Stack Operations
+var buildArray = function(target, n) {
+    stack = [];
+    resultArr = [];
+    
+    let index = 0;
+    
+    for(let j = 1; j <= n; j++){
+        resultArr.push("Push")
+        
+        if(target[index] === j){
+            stack.push(index)
+            index += 1;
+        }else{
+            resultArr.push("Pop")
+        }
+        
+        if(stack.length === target.length){
+            break;
+        };
+    };
+    
+    return resultArr;
+
+    
+    
+};
