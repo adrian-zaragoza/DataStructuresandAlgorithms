@@ -87,3 +87,31 @@ var buildArray = function(target, n) {
     
     
 };
+
+// 682. Baseball Game
+var calPoints = function(ops) {
+    let stack = [];
+    let sum = 0;
+    
+    for(let i = 0; i < ops.length; i++){
+        let ele = ops[i];
+        let newScore;
+        
+        if(Number(ops[i]) || ops[i] === "0"){
+            newScore = Number(ele);
+            stack.push(newScore);
+        }else if(ele === "+"){
+            newScore = stack[stack.length - 1] + stack[stack.length - 2];
+            stack.push(newScore);
+        }else if(ele === "D"){
+            newScore = stack[stack.length - 1] * 2;
+            stack.push(newScore);
+        }else{
+            newScore = stack.pop() * -1;
+        };
+        
+        sum += newScore;
+    };
+    
+    return sum;
+};
